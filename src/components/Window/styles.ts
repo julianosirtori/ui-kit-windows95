@@ -1,29 +1,33 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+import { Props } from './index';
+
+export const Container = styled.div<Props>`
   min-width: 400px;
   min-height: 300px;
   background: #BDBEBD;
   border-top: 1px solid #fff;
   display: flex;
+  width: ${(props) => props.maximize ?  '100vw' : 'auto'};
+  height: ${(props) => props.maximize ?  '100vh' : 'auto'};
   flex-direction: column;
 
 `;
 
-export const Header = styled.div`
-  background: #00007B;
+export const Header = styled.div<Props>`
+  background: ${(props) => props.headerBackgroundColor ?  props.headerBackgroundColor : "#00007B"};
   height: 18px;
   margin: 2px;
-  font-size: 10px;
+  font-size: 12px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  font-weight: bold;
+  font-weight: bolder;
 
   span{
     margin-left: 3px;
-    color: #fff;
+    color: ${(props) => props.headerTextColor ?  props.headerTextColor : "#fff"};
   }
 
   div{
@@ -48,8 +52,8 @@ export const Header = styled.div`
       }
 
       svg{
-        width: 8px;
-        height: 8px;
+        width: 10px;
+        height: 10px;
       }
     }
 
