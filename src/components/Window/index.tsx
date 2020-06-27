@@ -21,6 +21,7 @@ export interface Props {
   headerTextColor ?: string,
   maximize?: boolean,
   visible ?: boolean,
+  showFooter ?: boolean,
   maxWidth?: number,
   maxHeight?: number
 }
@@ -35,6 +36,7 @@ export const Window: React.FC<Props> = ({
   headerTextColor = "#fff",
   maximize = false,
   visible = true,
+  showFooter = true,
   ...props
 }) => {
   const [isMaximized, setIsMaximized] = useState(false);
@@ -84,14 +86,14 @@ export const Window: React.FC<Props> = ({
           {children}
         </BorderInside>
       </Content>
-      <Footer>
+      {showFooter && (<Footer>
         <SmallInfos>
           <span>{footerMessages[0]}</span>
         </SmallInfos>
         <LargeInfos>
           <span>{footerMessages[1]}</span>
         </LargeInfos>
-      </Footer>
+      </Footer>)}
     </Container>
     </Draggable>) : <div></div>
 };
