@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { FaRegWindowMinimize, FaRegWindowMaximize } from "react-icons/fa";
+import Draggable from 'react-draggable';
 import { MdClose } from 'react-icons/md';
 
 import { 
@@ -19,11 +20,15 @@ export interface Props {
   headerBackgroundColor?: string,
   headerTextColor ?: string,
   maximize?: boolean,
-  visible ?: boolean
+  visible ?: boolean,
+  maxWidth?: number,
+  maxHeight?: number
 }
 
 export const Window: React.FC<Props> = ({
   children,
+  maxWidth,
+  maxHeight,
   title = "Online Services",
   footerMessages = ["6 object(s)", "7,39kb"],
   headerBackgroundColor = "#00007B",
@@ -48,8 +53,11 @@ export const Window: React.FC<Props> = ({
   }
 
   return isVisible ? ( 
-    <Container maximize={isMaximized} {...props}>
-      <Header headerBackgroundColor={headerBackgroundColor} headerTextColor={headerTextColor}>
+    <Draggable handle=".handle">
+      <Container 
+        maximize={isMaximized} 
+        {...props}>
+      <Header className="handle" headerBackgroundColor={headerBackgroundColor} headerTextColor={headerTextColor}>
         <span>{title}</span>
         <div>
           <button>
@@ -70,7 +78,9 @@ export const Window: React.FC<Props> = ({
         <a href="#">Help</a>
       </Menu>
       <Content>
-        <BorderInside>
+        <BorderInside 
+           maxHeight={maxHeight}
+           maxWidth={maxWidth} >
           {children}
         </BorderInside>
       </Content>
@@ -82,5 +92,6 @@ export const Window: React.FC<Props> = ({
           <span>{footerMessages[1]}</span>
         </LargeInfos>
       </Footer>
-    </Container>) : <div></div>
+    </Container>
+    </Draggable>) : <div></div>
 };

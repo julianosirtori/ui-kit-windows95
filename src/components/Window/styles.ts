@@ -5,6 +5,8 @@ import { Props } from './index';
 export const Container = styled.div<Props>`
   min-width: 400px;
   min-height: 300px;
+  width: 100%;
+  height: 100%;
   background: #BDBEBD;
   border-top: 1px solid #fff;
   display: flex;
@@ -88,12 +90,15 @@ export const Content = styled.div`
   display: flex;
 `;
 
-export const BorderInside = styled.div`
+export const BorderInside = styled.div<Props>`
   flex: 1;
   border-top: 1px solid #000;
   border-left: 1px solid #000;
   border-bottom: 1px solid #dedede;
   border-right: 1px solid #dedede;
+  overflow: auto;
+  max-width: ${(props) => props.maxWidth ?  `${props.maxWidth}px` : 'none'};
+  max-height: ${(props) => props.maxHeight ?  `${props.maxHeight}px` : 'none'}; 
 `;
 
 export const BorderReverse = styled.div`
@@ -114,7 +119,7 @@ export const Footer = styled.div`
 
 export const SmallInfos = styled.div`
   min-width: 150px;
-  height: 18px;
+  height: 22px;
   display: flex;
   margin-right: 2px;
   border-top: 1px solid #7B7D7B;
@@ -122,13 +127,13 @@ export const SmallInfos = styled.div`
   border-bottom: 1px solid #fff;
   border-right: 1px solid #fff;
   padding: 2px;
-  font-size: 10px;
+  font-size: 12px;
 `;
 
 export const LargeInfos = styled.div`
   flex: 1;
-  height: 18px;
-  font-size: 10px;
+  height: 22px;
+  font-size: 12px;
   display: flex;
   border-top: 1px solid #7B7D7B;
   border-left: 1px solid #7B7D7B;
