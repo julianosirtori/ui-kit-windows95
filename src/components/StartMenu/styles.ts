@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import {Props} from './index';
+
 //TODO mudar para 100%
 export const Container = styled.div`
   width: 850px; 
@@ -26,9 +28,9 @@ export const Container = styled.div`
   }
 `;
 
-export const StartButton = styled.button`
+export const StartButton = styled.button<Props>`
   width: 60px;
-  background: #BDBEBD;
+  background: ${props => props.isOpen ? '#e3e3e3' : '#BDBEBD'};
   border-bottom: 1px solid #000;
   border-right: 1px solid #000;
   border-top: 1px solid #fff;
@@ -73,4 +75,26 @@ export const Timer = styled.div`
     border-right: 1px solid #FFFFFF;
     border-top: 1px solid #8C8D8C;
     border-left: 1px solid #8C8D8C;
+`;
+
+export const Menu = styled.div`
+  position: absolute;
+  bottom: 28px;
+  left: 2px;
+  height: 270px;
+  width: 160px;
+  display: flex;
+  background: #BDBEBD;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  border-top: 1px solid #8C8D8C;
+  border-left: 1px solid #8C8D8C;
+`;
+
+export const ContentMenu = styled.div`
+  flex: 1;
+  border-top: 1px solid #FFFFFF;
+  border-left: 1px solid #FFFFFF;
+  border-bottom: 1px solid #7B7D7B;
+  border-right: 1px solid #7B7D7B;
 `;
