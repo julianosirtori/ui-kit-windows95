@@ -22,7 +22,7 @@ export interface Props  {
   isOpen ?: boolean
 }
 
-export const StartMenu: React.FC<Props> = ({
+const StartMenu: React.FC<Props> = ({
   isOpen = false,
   ...props
 }) => {
@@ -81,3 +81,5 @@ export const StartMenu: React.FC<Props> = ({
     </Container>
   )
 };
+
+export default StartMenu;

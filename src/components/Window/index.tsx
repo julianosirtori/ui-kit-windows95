@@ -26,7 +26,7 @@ export interface Props {
   maxHeight?: number
 }
 
-export const Window: React.FC<Props> = ({
+const Window: React.FC<Props> = ({
   children,
   maxWidth,
   maxHeight,
@@ -97,3 +97,5 @@ export const Window: React.FC<Props> = ({
     </Container>
     </Draggable>) : <div></div>
 };
+
+export default Window;

@@ -1,3 +1,4 @@
-export { Window } from './components/Window';
-export { StartMenu } from './components/StartMenu';
-export { Icon } from './components/Icon';
+export { default as Window } from './components/Window';
+export { default as StartMenu } from './components/StartMenu';
+export { default as Icon } from './components/Icon';
+export { default as Button } from './components/Button';

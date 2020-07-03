@@ -10,7 +10,7 @@ export interface Props  {
   click?: () => void,
 }
 
-export const Icon: React.FC<Props> = ({
+const Icon: React.FC<Props> = ({
   title,
   iconName,
   customicon = null,
@@ -33,3 +33,5 @@ export const Icon: React.FC<Props> = ({
     </Draggable>
   );
 };
+
+export default Icon;

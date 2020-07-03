@@ -7,4 +7,10 @@ storiesOf('Start Menu', module)
   .add('Default', () => <StartMenu />);
 
 storiesOf('Start Menu', module)
-  .add('Menu Open', () => <StartMenu isOpen={true} />);
+  .add('Open', () => <StartMenu isOpen={true} />);
+
+storiesOf('Start Menu', module)
+  .add('With Itens Menu', () => <StartMenu isOpen={true} />);
+
+storiesOf('Start Menu', module)
+  .add('With windows itens', () => <StartMenu isOpen={true} />);
