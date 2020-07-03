@@ -2,12 +2,20 @@ import React, { useState, useEffect } from 'react';
 
 // const WindowsLogo  = require('../../assets/icons/windows_start.png');
 const WindowsLogo  = require('../../assets/icons/windows_start.png');
+const ShutDown  = require('../../assets/icons/shut_down.png');
+const Standby  = require('../../assets/icons/standby.png');
+const Run  = require('../../assets/icons/application_hourglass.png');
+
 import { 
   Container, 
   StartButton, 
   Menu, 
   ContentMenu, 
-  Timer 
+  Timer,
+  BordaLeft,
+  ItemMenu,
+  Itens,
+  ItemSeparator
 } from './styles';
 
 export interface Props  {
@@ -45,7 +53,24 @@ export const StartMenu: React.FC<Props> = ({
         
         {isMenuOpen && (
           <Menu>
-            <ContentMenu></ContentMenu>
+            <ContentMenu>
+              <BordaLeft/>
+              <Itens>
+                <ItemMenu>
+                  <img src={Run} alt="run" />
+                  <span>Run...</span>
+                </ItemMenu>
+                <ItemSeparator/>
+                <ItemMenu>
+                  <img src={Standby} alt="suspend" />
+                  <span>Suspend</span>
+                </ItemMenu>
+                <ItemMenu>
+                  <img src={ShutDown} alt="shutdown" />
+                  <span>Shut Down</span>
+                </ItemMenu>
+              </Itens>
+            </ContentMenu>
           </Menu>
         )}
 

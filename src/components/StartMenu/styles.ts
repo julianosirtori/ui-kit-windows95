@@ -93,8 +93,56 @@ export const Menu = styled.div`
 
 export const ContentMenu = styled.div`
   flex: 1;
+  display: flex;
+  flex-direction: row;
   border-top: 1px solid #FFFFFF;
   border-left: 1px solid #FFFFFF;
   border-bottom: 1px solid #7B7D7B;
   border-right: 1px solid #7B7D7B;
+`;
+
+export const BordaLeft  = styled.div`
+  height: 100%;
+  width: 21px;
+  background: #7B7D7B;
+`;
+
+export const Itens = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+`;
+
+export const ItemMenu = styled.div`
+  height: 32px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &:hover{
+    cursor: pointer;
+    background: #00007B;
+
+    span{
+      color: #fff;
+    }
+  }
+
+  img{
+    height: 28px;
+    margin-right: 10px; 
+  }
+
+  span{
+    font-size: 12px;
+  }
+`;
+
+export const ItemSeparator = styled.div`
+  height: 1px;
+  width: 100%;
+  border-top: 1px solid #7B7D7B;
+  border-bottom: 1px solid #FFF;
 `;
