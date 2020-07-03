@@ -21,6 +21,7 @@
     "typescript": "^3.9.5"
   },
   "dependencies": {
+    "@storybook/addon-actions": "^5.3.19",
     "react-draggable": "^4.4.3",
     "react-icons": "^3.10.0",
     "styled-components": "^5.1.1"

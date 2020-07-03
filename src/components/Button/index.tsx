@@ -3,15 +3,17 @@ import React from 'react';
 import { Container } from './styles';
 
 export interface Props {
-  small?: boolean
+  small?: boolean,
+  onClick?: any
 }
 
 const Button: React.FC<Props> = ({
   children,
-  small = true
+  small = true,
+  ...props
 }) => {
   return (
-  <Container>
+  <Container {...props}>
     {children}
   </Container>);
 }
