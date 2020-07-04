@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 import {Props} from './index';
 
+interface PropsItemWindow  {
+  active ?: boolean
+}
+
 //TODO mudar para 100% o width do container
 export const Container = styled.div`
   width: 850px; 
@@ -33,6 +37,7 @@ export const StartButton = styled.button<Props>`
   font-weight: bold;
   padding: 2px;
   margin-left: 2px;
+  margin-right: 8px;
   box-shadow:  
     -1px -1px 0 0px #DEDEDE,
     0px 0px 0 1px #7B7D7B;
@@ -137,4 +142,56 @@ export const ItemSeparator = styled.div`
   width: 100%;
   border-top: 1px solid #7B7D7B;
   border-bottom: 1px solid #FFF;
+`;
+
+export const ItensWindow = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const ItemWindow = styled.div<PropsItemWindow>`
+  max-width: 120px;
+  width: 100%;
+  margin-right: 6px;
+  display: flex;
+  height: 22px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #000;
+  font-size: 12px;
+  padding: 2px 4px;
+  background: ${props => props.active ? '#DEDEDE' : '#BDBEBD' } ;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  box-shadow:  
+    -1px -1px 0 0px #DEDEDE,
+    0px 0px 0 1px #7B7D7B;
+
+  &:hover{
+    cursor: pointer;
+  }
+
+  &:active{
+    border: 1px dotted #000; 
+    box-shadow:  
+    0px 0px 0 0px #7B7D7B,
+    0px 0px 0 1px #000;
+  }
+  
+  span{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100px;
+  }
+
+  img{
+    height: 12px;
+    margin-right: 2px;
+  }
 `;

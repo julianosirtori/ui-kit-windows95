@@ -5,6 +5,7 @@ const WindowsLogo  = require('../../assets/icons/windows_start.png');
 const ShutDown  = require('../../assets/icons/shut_down.png');
 const Standby  = require('../../assets/icons/standby.png');
 const Run  = require('../../assets/icons/application_hourglass.png');
+const Appwiz = require('../../assets/icons/appwiz.png');
 
 import { 
   Container, 
@@ -15,15 +16,18 @@ import {
   BordaLeft,
   ItemMenu,
   Itens,
-  ItemSeparator
+  ItemSeparator,
+  ItensWindow,
+  ItemWindow
 } from './styles';
-
 export interface Props  {
-  isOpen ?: boolean
+  isOpen ?: boolean,
+  windowsItens?: { title: string, active: boolean, click: any }[]
 }
 
 const StartMenu: React.FC<Props> = ({
   isOpen = false,
+  windowsItens =  [],
   ...props
 }) => {
   const [time, setTime] = useState("");
@@ -47,7 +51,6 @@ const StartMenu: React.FC<Props> = ({
         <img src={WindowsLogo} alt="logo" />
         Start
       </StartButton>
-      
       {isMenuOpen && (
         <Menu>
           <ContentMenu>
@@ -70,6 +73,16 @@ const StartMenu: React.FC<Props> = ({
           </ContentMenu>
         </Menu>
       )}
+      <ItensWindow>
+        {windowsItens.map(item => (
+          <ItemWindow 
+            active={item.active} 
+            onClick={item.click}>
+            <img src={Appwiz} />
+            <span>{item.title}</span>
+          </ItemWindow>
+        ))}
+      </ItensWindow>
 
       <Timer>
         <span>{time}</span>
