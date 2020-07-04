@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ReactNode } from 'react';
 
 // const WindowsLogo  = require('../../assets/icons/windows_start.png');
 const WindowsLogo  = require('../../assets/icons/windows_start.png');
@@ -22,12 +22,14 @@ import {
 } from './styles';
 export interface Props  {
   isOpen ?: boolean,
+  menuItens ?: {title: string, icon: ReactNode, click: any}[]
   windowsItens?: { title: string, active: boolean, click: any }[]
 }
 
 const StartMenu: React.FC<Props> = ({
   isOpen = false,
   windowsItens =  [],
+  menuItens = [],
   ...props
 }) => {
   const [time, setTime] = useState("");
@@ -37,12 +39,25 @@ const StartMenu: React.FC<Props> = ({
     setIsMenuOpen(isOpen);
   }, [isOpen])
 
-  setInterval(()=> {
-    setTime(new Date().toLocaleTimeString());
-  }, 1000)
+  useEffect(() => {
+    const timer = 
+      setInterval(()=> {
+        setTime(new Date().toLocaleTimeString());
+      }, 1000);
+      
+      return () => {
+        clearInterval(timer);
+      }
+  }, [])
+
 
   function handleButtonStart(){
     setIsMenuOpen(!isMenuOpen);
+  }
+
+  function handleClickItemMenu(item: {click: any} ){
+    setIsMenuOpen(false);
+    item.click();
   }
 
   return (
@@ -56,16 +71,22 @@ const StartMenu: React.FC<Props> = ({
           <ContentMenu>
             <BordaLeft/>
             <Itens>
-              <ItemMenu>
+              {menuItens.map(item => (
+                <ItemMenu key={item.title} onClick={() => handleClickItemMenu(item)}>
+                  {item.icon}
+                  <span>{item.title}</span>
+                </ItemMenu>  
+              ))}
+              <ItemMenu onClick={handleButtonStart}>
                 <img src={Run} alt="run" />
                 <span>Run...</span>
               </ItemMenu>
               <ItemSeparator/>
-              <ItemMenu>
+              <ItemMenu onClick={handleButtonStart}>
                 <img src={Standby} alt="suspend" />
                 <span>Suspend</span>
               </ItemMenu>
-              <ItemMenu>
+              <ItemMenu onClick={handleButtonStart}>
                 <img src={ShutDown} alt="shutdown" />
                 <span>Shut Down</span>
               </ItemMenu>
@@ -75,7 +96,8 @@ const StartMenu: React.FC<Props> = ({
       )}
       <ItensWindow>
         {windowsItens.map(item => (
-          <ItemWindow 
+          <ItemWindow
+            key={item.title} 
             active={item.active} 
             onClick={item.click}>
             <img src={Appwiz} />

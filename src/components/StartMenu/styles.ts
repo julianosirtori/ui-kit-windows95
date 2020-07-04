@@ -6,9 +6,8 @@ interface PropsItemWindow  {
   active ?: boolean
 }
 
-//TODO mudar para 100% o width do container
 export const Container = styled.div`
-  width: 850px; 
+  width: 100%; 
   background: #BDBEBD;
   border-top: 1px solid #fff;
   display: flex;
@@ -78,7 +77,6 @@ export const Menu = styled.div`
   position: absolute;
   bottom: 28px;
   left: 2px;
-  height: 270px;
   width: 160px;
   display: flex;
   background: #BDBEBD;
@@ -127,9 +125,12 @@ export const ItemMenu = styled.div`
     }
   }
 
-  img{
+  img,
+  svg,
+  div{
     height: 28px;
-    margin-right: 10px; 
+    margin-left: 8px;
+    margin-right: 8px; 
   }
 
   span{
