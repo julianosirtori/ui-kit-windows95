@@ -8,18 +8,20 @@ export const Container = styled.div<Props>`
   width: 100%;
   height: 100%;
   background: #BDBEBD;
-  border-top: 1px solid #fff;
   display: flex;
   width: ${(props) => props.maximize ?  '100vw' : 'auto'};
   height: ${(props) => props.maximize ?  '100vh' : 'auto'};
   flex-direction: column;
+  padding: 2px;
+  box-shadow:  
+    -1px -1px 0 1px #fff,
+    0px 0px 0 2px #7B7D7B;
 
 `;
 
 export const Header = styled.div<Props>`
   background: ${(props) => props.headerBackgroundColor ?  props.headerBackgroundColor : "#00007B"};
   height: 18px;
-  margin: 2px;
   font-size: 12px;
   display: flex;
   flex-direction: row;
@@ -79,42 +81,27 @@ export const Menu = styled.div`
   
 `;
 
-export const Content = styled.div`
+export const Content = styled.div<Props>`
   background: #fff;
   flex: 1;
-  margin: 2px;
-  border-top: 1px solid #7B7D7B;
-  border-left: 1px solid #7B7D7B;
-  border-bottom: 1px solid #fff;
-  border-right: 1px solid #fff;
-  display: flex;
-`;
-
-export const BorderInside = styled.div<Props>`
-  flex: 1;
-  border-top: 1px solid #000;
-  border-left: 1px solid #000;
-  border-bottom: 1px solid #dedede;
-  border-right: 1px solid #dedede;
   overflow: auto;
   max-width: ${(props) => props.maxWidth ?  `${props.maxWidth}px` : 'none'};
   max-height: ${(props) => props.maxHeight ?  `${props.maxHeight}px` : 'none'}; 
+  margin: 4px 4px;
+  box-shadow:  
+    -1px -1px 0 1px #000,
+    0px 0px 0 2px #DEDEDE,
+    -1px -1px 0 3px #7B7D7B,
+    0px 0px 0 4px #FFFFFF;
 `;
 
-export const BorderReverse = styled.div`
-  flex: 1;
-  border-bottom: 1px solid #000;
-  border-right: 1px solid #000;
-  border-top: 1px solid #dedede;
-  border-left: 1px solid #dedede;
-`;
 
 export const Footer = styled.div`
   display: flex;
-  margin: 2px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: 2px;
 `;
 
 export const SmallInfos = styled.div`

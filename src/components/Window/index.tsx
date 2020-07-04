@@ -7,8 +7,7 @@ import {
   Container, 
   Header, 
   Menu, 
-  Content, 
-  BorderInside, 
+  Content,  
   Footer, 
   SmallInfos,
   LargeInfos
@@ -59,42 +58,41 @@ const Window: React.FC<Props> = ({
       <Container 
         maximize={isMaximized} 
         {...props}>
-      <Header className="handle" headerBackgroundColor={headerBackgroundColor} headerTextColor={headerTextColor}>
-        <span>{title}</span>
-        <div>
-          <button>
-            <FaRegWindowMinimize />
-          </button>
-          <button onClick={handleMaximize}>
-            <FaRegWindowMaximize />
-          </button>
-          <button onClick={close}>
-            <MdClose />
-          </button>
-        </div>
-      </Header>
-      <Menu>
-        <a href="#">File</a>
-        <a href="#">Edit</a>
-        <a href="#">View</a>
-        <a href="#">Help</a>
-      </Menu>
-      <Content>
-        <BorderInside 
-           maxHeight={maxHeight}
-           maxWidth={maxWidth} >
+        <Header className="handle" headerBackgroundColor={headerBackgroundColor} headerTextColor={headerTextColor}>
+          <span>{title}</span>
+          <div>
+            <button>
+              <FaRegWindowMinimize />
+            </button>
+            <button onClick={handleMaximize}>
+              <FaRegWindowMaximize />
+            </button>
+            <button onClick={close}>
+              <MdClose />
+            </button>
+          </div>
+        </Header>
+        <Menu>
+          <a href="#">File</a>
+          <a href="#">Edit</a>
+          <a href="#">View</a>
+          <a href="#">Help</a>
+        </Menu>
+        <Content   
+          maxHeight={maxHeight}
+          maxWidth={maxWidth} >
           {children}
-        </BorderInside>
-      </Content>
-      {showFooter && (<Footer>
-        <SmallInfos>
-          <span>{footerMessages[0]}</span>
-        </SmallInfos>
-        <LargeInfos>
-          <span>{footerMessages[1]}</span>
-        </LargeInfos>
-      </Footer>)}
-    </Container>
+        </Content>
+        {showFooter && (
+        <Footer>
+          <SmallInfos>
+            <span>{footerMessages[0]}</span>
+          </SmallInfos>
+          <LargeInfos>
+            <span>{footerMessages[1]}</span>
+          </LargeInfos>
+        </Footer>)}
+      </Container>
     </Draggable>) : <div></div>
 };
 
