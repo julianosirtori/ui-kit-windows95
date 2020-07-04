@@ -42,42 +42,38 @@ const StartMenu: React.FC<Props> = ({
   }
 
   return (
-    <Container {...props}>
-      <div className="border-inside-menu">
-        <StartButton isOpen={isMenuOpen} onClick={handleButtonStart}>
-          <div className="border-inside-button">
-            <img src={WindowsLogo} alt="logo" />
-            Start
-          </div>
-        </StartButton>
-        
-        {isMenuOpen && (
-          <Menu>
-            <ContentMenu>
-              <BordaLeft/>
-              <Itens>
-                <ItemMenu>
-                  <img src={Run} alt="run" />
-                  <span>Run...</span>
-                </ItemMenu>
-                <ItemSeparator/>
-                <ItemMenu>
-                  <img src={Standby} alt="suspend" />
-                  <span>Suspend</span>
-                </ItemMenu>
-                <ItemMenu>
-                  <img src={ShutDown} alt="shutdown" />
-                  <span>Shut Down</span>
-                </ItemMenu>
-              </Itens>
-            </ContentMenu>
-          </Menu>
-        )}
+    <Container {...props}>  
+      <StartButton isOpen={isMenuOpen} onClick={handleButtonStart}>
+        <img src={WindowsLogo} alt="logo" />
+        Start
+      </StartButton>
+      
+      {isMenuOpen && (
+        <Menu>
+          <ContentMenu>
+            <BordaLeft/>
+            <Itens>
+              <ItemMenu>
+                <img src={Run} alt="run" />
+                <span>Run...</span>
+              </ItemMenu>
+              <ItemSeparator/>
+              <ItemMenu>
+                <img src={Standby} alt="suspend" />
+                <span>Suspend</span>
+              </ItemMenu>
+              <ItemMenu>
+                <img src={ShutDown} alt="shutdown" />
+                <span>Shut Down</span>
+              </ItemMenu>
+            </Itens>
+          </ContentMenu>
+        </Menu>
+      )}
 
-        <Timer>
-          <span>{time}</span>
-        </Timer>
-      </div>
+      <Timer>
+        <span>{time}</span>
+      </Timer>
     </Container>
   )
 };

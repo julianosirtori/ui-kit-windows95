@@ -2,30 +2,19 @@ import styled from 'styled-components';
 
 import {Props} from './index';
 
-//TODO mudar para 100%
+//TODO mudar para 100% o width do container
 export const Container = styled.div`
   width: 850px; 
   background: #BDBEBD;
-  border-bottom: 1px solid #000;
-  border-right: 1px solid #000;
   border-top: 1px solid #fff;
   display: flex;
   align-items: center;
   flex-direction: row;
-
-  .border-inside-menu{
-    flex: 1;
-    display: flex;
-    flex-direction:  row;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    border-top: 1px solid #DEDEDE;
-    border-left: 1px solid #DEDEDE;
-    border-bottom: 1px solid #7B7D7B;
-    border-right: 1px solid #7B7D7B;
-  }
+  justify-content: space-between;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  box-shadow:  
+    0 -1px 0 0px #DEDEDE;
 `;
 
 export const StartButton = styled.button<Props>`
@@ -36,6 +25,24 @@ export const StartButton = styled.button<Props>`
   border-top: 1px solid #fff;
   border-left: 1px solid #fff;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2px;
+  margin-left: 2px;
+  box-shadow:  
+    -1px -1px 0 0px #DEDEDE,
+    0px 0px 0 1px #7B7D7B;
+
+  &:active{
+    border: 1px dotted #000; 
+    box-shadow:  
+    0px 0px 0 0px #7B7D7B,
+    0px 0px 0 1px #000;
+  }
 
   &:hover{
     cursor: pointer;
@@ -46,21 +53,6 @@ export const StartButton = styled.button<Props>`
     height: 16px;
   }
 
-  .border-inside-button{
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2px;
-    color: #000;
-    font-size: 14px;
-    font-weight: bold;
-    border-top: 1px solid #DEDEDE;
-    border-left: 1px solid #DEDEDE;
-    border-bottom: 1px solid #7B7D7B;
-    border-right: 1px solid #7B7D7B;
-  }
 `;
 
 export const Timer = styled.div`
