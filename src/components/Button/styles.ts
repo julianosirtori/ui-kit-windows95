@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
-export const Container = styled.button`
+import { Props } from './index';
+
+export const Container = styled.button<Props>`
   border: none;
-  height: 22px;
-  width: 80px;
+  min-width: ${props => props.small ? '60px' : '80px'};
+  padding:4px 8px;
   font-size: 12px;
+  font-weight: ${props => props.bold ? 'bold': 'normal'};
   text-align: center;
   background: #BDBEBD;
   box-shadow:  
@@ -19,5 +22,9 @@ export const Container = styled.button`
       box-shadow:  
       0px 0px 0 2px #7B7D7B,
       0px 0px 0 4px #000;
+    }
+
+    &:hover{
+      cursor: pointer;
     }
 `;
