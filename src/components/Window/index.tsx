@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { FaRegWindowMinimize, FaRegWindowMaximize } from "react-icons/fa";
 import Draggable from 'react-draggable';
 import { MdClose } from 'react-icons/md';
@@ -40,6 +40,7 @@ const Window: React.FC<Props> = ({
 }) => {
   const [isMaximized, setIsMaximized] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const nodeRef = useRef(null);
 
   useEffect(()=> {
     setIsVisible(visible)
@@ -53,9 +54,11 @@ const Window: React.FC<Props> = ({
     setIsVisible(false);
   }
 
+
   return isVisible ? ( 
-    <Draggable handle=".handle">
-      <Container 
+    <Draggable handle=".handle" nodeRef={nodeRef}>
+      <Container
+        ref={nodeRef} 
         maximize={isMaximized} 
         {...props}>
         <Header className="handle" headerBackgroundColor={headerBackgroundColor} headerTextColor={headerTextColor}>
