@@ -1,6 +1,6 @@
 {
   "name": "ui-kit-windows95",
-  "version": "1.0.4-beta",
+  "version": "1.0.8-beta",
   "main": "dist/index.js",
   "repository": "git@github.com:julianosirtori/ui-kit-windows95.git",
   "author": "Juliano Sirtori <julianosirtori@gmail.com>",

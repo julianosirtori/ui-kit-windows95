@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import '../../styles/reset.css';
+
 export const Container = styled.div`
   background: #BDBEBD;
   display: flex;

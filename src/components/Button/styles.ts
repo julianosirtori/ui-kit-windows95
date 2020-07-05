@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import '../../styles/reset.css';
 import { Props } from './index';
 
 export const Container = styled.button<Props>`

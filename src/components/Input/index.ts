@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import '../../styles/reset.css';
 
 export default styled.input`
   padding: 4px;

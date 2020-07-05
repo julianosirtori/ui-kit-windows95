@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { Props } from './index';
+import '../../styles/reset.css';
 
 export const Container = styled.div<Props>`
   min-width: 400px;

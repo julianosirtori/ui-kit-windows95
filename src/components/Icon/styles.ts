@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import '../../styles/reset.css';
+
 export const Container = styled.div`
   display:flex;
   flex-direction: column;
