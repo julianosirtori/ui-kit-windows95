@@ -1,12 +1,13 @@
 {
   "name": "ui-kit-windows95",
-  "version": "1.0.0",
+  "version": "1.0.4-beta",
   "main": "dist/index.js",
   "repository": "git@github.com:julianosirtori/ui-kit-windows95.git",
   "author": "Juliano Sirtori <julianosirtori@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "storybook": "start-storybook -p 6006"
+    "storybook": "start-storybook -p 6006",
+    "build" : "tsc -p ."
   },
   "devDependencies": {
     "@storybook/addon-centered": "^5.3.19",

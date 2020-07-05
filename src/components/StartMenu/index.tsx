@@ -1,11 +1,10 @@
 import React, { useState, useEffect, ReactNode } from 'react';
 
-// const WindowsLogo  = require('../../assets/icons/windows_start.png');
-const WindowsLogo  = require('../../assets/icons/windows_start.png');
-const ShutDown  = require('../../assets/icons/shut_down.png');
-const Standby  = require('../../assets/icons/standby.png');
-const Run  = require('../../assets/icons/application_hourglass.png');
-const Appwiz = require('../../assets/icons/appwiz.png');
+import WindowsLogo from '../../assets/icons/windows_start.png';
+import ShutDown from '../../assets/icons/shut_down.png';
+import Standby from '../../assets/icons/standby.png';
+import Run from '../../assets/icons/application_hourglass.png';
+import Appwiz from '../../assets/icons/appwiz.png';
 
 import { 
   Container, 

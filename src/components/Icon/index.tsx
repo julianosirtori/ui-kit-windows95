@@ -27,7 +27,7 @@ const Icon: React.FC<Props> = ({
     <Draggable>
       <Container onClick={click} {...props}>
         {icon && (<img src={icon} draggable="false" alt="icon" />)}
-        {customicon}
+        {customicon && (customicon)}
         <span>{title}</span>
       </Container>
     </Draggable>
