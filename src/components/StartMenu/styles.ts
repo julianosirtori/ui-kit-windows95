@@ -9,7 +9,11 @@ interface PropsItemWindow  {
 }
 
 export const Container = styled.div`
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
   width: 100%; 
+  height: 32px;
   background: #BDBEBD;
   border-top: 1px solid #fff;
   display: flex;

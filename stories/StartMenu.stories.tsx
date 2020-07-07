@@ -6,10 +6,12 @@ const Certificate = require('../src/assets/icons/certificate.png');
 import { StartMenu } from '../src';
 
 storiesOf('Start Menu', module)
-  .add('Default', () => <StartMenu />);
+  .add('Default', () => 
+    <div style={{height: "100vh", width: "100vw"}}><StartMenu /></div>);
 
 storiesOf('Start Menu', module)
-  .add('Open Menu', () => <StartMenu isOpen={true} />);
+  .add('Open Menu', () => 
+  <div style={{height: "100vh", width: "100vw"}}><StartMenu isOpen={true} /></div>);
 
 storiesOf('Start Menu', module)
   .add('With Itens Menu', () => {
@@ -21,7 +23,7 @@ storiesOf('Start Menu', module)
       }
     ];
 
-    return <StartMenu  menuItens={itens} />
+    return <div style={{height: "100vh", width: "100vw"}}><StartMenu  menuItens={itens} /></div>
   });
 
 storiesOf('Start Menu', module)
@@ -43,5 +45,5 @@ storiesOf('Start Menu', module)
         click: () => console.log('Music player')
       },
     ];
-    return <StartMenu windowsItens={itens} />
+    return <div style={{height: "100vh", width: "100vw"}}><StartMenu windowsItens={itens} /></div>
   });
