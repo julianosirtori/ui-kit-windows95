@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef } from 'react';
+import React, { ReactNode, useState, useRef } from 'react';
 
 import Draggable from 'react-draggable';
 import { Container } from './styles';
@@ -17,16 +17,34 @@ const Icon: React.FC<Props> = ({
   click = () => {},
   ...props
 }) => {
+  const [isDragging, setIsDragging] = useState(false);
+  
   let icon;
   if(iconName){
     const icons = require.context('../../assets/icons', true);
     icon = icons(`./${iconName}.png`);
   }
   const nodeRef = useRef(null);
+
+  function handleClickIcon(){
+    click();
+  }
+
+  function onStop(){
+    if(isDragging){
+      setIsDragging(false)
+    }else{
+      handleClickIcon();
+    }
+  }
+
+  function onDrag(){
+    setIsDragging(true)
+  }
   
   return (
-    <Draggable nodeRef={nodeRef}>
-      <Container ref={nodeRef} onClick={click} {...props}>
+    <Draggable onStop={onStop} onDrag={onDrag} nodeRef={nodeRef}>
+      <Container ref={nodeRef} {...props}>
         {icon && (<img src={icon} draggable="false" alt="icon" />)}
         {customicon && (customicon)}
         <span>{title}</span>
