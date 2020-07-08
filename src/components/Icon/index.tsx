@@ -7,6 +7,7 @@ export interface Props  {
   title: string,
   iconName?: string,
   customicon?: ReactNode,
+  textBackgroundNone ?: boolean
   click?: () => void,
 }
 
@@ -14,6 +15,7 @@ const Icon: React.FC<Props> = ({
   title,
   iconName,
   customicon = null,
+  textBackgroundNone = false,
   click = () => {},
   ...props
 }) => {
@@ -44,7 +46,7 @@ const Icon: React.FC<Props> = ({
   
   return (
     <Draggable onStop={onStop} onDrag={onDrag} nodeRef={nodeRef}>
-      <Container ref={nodeRef} {...props}>
+      <Container textBackgroundNone={textBackgroundNone} ref={nodeRef} {...props}>
         {icon && (<img src={icon} draggable="false" alt="icon" />)}
         {customicon && (customicon)}
         <span>{title}</span>

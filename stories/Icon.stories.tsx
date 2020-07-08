@@ -9,3 +9,6 @@ storiesOf('Icon', module)
 
   storiesOf('Icon', module)
   .add('Custom Icon', () => <Icon title="Skills" click={() => {console.log('teste')}} customicon={(<MdInfoOutline/>)} />);
+
+storiesOf('Icon', module)
+  .add('Text - None  Background', () => <Icon title="Skills" textBackgroundNone={true} click={() => {console.log('teste')}} iconName="folder" />);
