@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@font-face {
+  font-family: 'Windows 95';
+  src: url('../fonts/w-95-sans-serif.woff2') format('woff2'),
+      url('../fonts/w-95-sans-serif.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 * {
   margin: 0;
@@ -6,5 +12,5 @@
   outline: 0;
   box-sizing: border-box;
 
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-family: "Windows 95", Arial, Helvetica, sans-serif;
 }
