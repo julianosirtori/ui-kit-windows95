@@ -24,9 +24,7 @@ jobs:
           git config user.email gh-actions-${GITHUB_ACTOR}@github.com
           npm version patch
           git push origin master
-          content=`cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g'`
-          echo "::set-output name=version::$content"
-
+       
       - name: install dependencies
         run: yarn
 
@@ -37,8 +35,8 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         with:
-          tag_name: ${{steps.version.outputs.version}}
-          release_name: Release ${{ github.ref }}
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
           body: ${{ github.ref }}
           draft: false
           prerelease: false
