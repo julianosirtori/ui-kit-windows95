@@ -33,12 +33,6 @@ jobs:
       - name: create version
         run: yarn build
 
-      - name: publish version
-        uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          check-version: true
-
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -49,6 +43,3 @@ jobs:
           draft: false
           prerelease: false
 
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
