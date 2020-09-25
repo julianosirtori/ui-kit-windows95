@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - master
+
 jobs:
-  npm-publish:
-    name: npm-publish
+  publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -17,21 +17,40 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+
       - name: version
         run: |
           git config user.name $GITHUB_ACTOR
           git config user.email gh-actions-${GITHUB_ACTOR}@github.com
           npm version patch
           git push origin master
-          
-      - name: Set up project
-        run: npm install
+          content=`cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g'`
+          echo "::set-output name=version::$content"
 
-      - name: Build
+      - name: install dependencies
+        run: yarn
+
+      - name: run tests
+        run: yarn test
+
+      - name: create version
         run: yarn build
 
-      - name: Publish
-        run: npm publish
+      - name: publish version
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          check-version: true
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{steps.version.outputs.version}}
+          release_name: Release ${{ github.ref }}
+          body: ${{ github.ref }}
+          draft: false
+          prerelease: false
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
