@@ -30,9 +30,6 @@ jobs:
       - name: install dependencies
         run: yarn
 
-      - name: run tests
-        run: yarn test
-
       - name: create version
         run: yarn build
 
